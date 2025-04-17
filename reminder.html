@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reminder | HealthCare+</title>
+  <link rel="stylesheet" href="cs.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+</head>
+<body>
+  <header>
+    <h1>HealthCare+</h1>
+    <p>Set Your Medical Reminders</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="appointment.html">Appointment</a>
+    <a href="reminder.html">Reminder</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="emergency.html">Emergency</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Reminder Page</h2>
+      <p>Set reminders for medications, vaccines, and upcoming doctor visits.</p>
+
+      <div class="form-container">
+        <form id="reminderForm">
+          <label for="reminderTitle">Reminder Title</label>
+          <input type="text" id="reminderTitle" required placeholder="e.g., Doctor Appointment" />
+
+          <label for="reminderDate">Date</label>
+          <input type="date" id="reminderDate" required />
+
+          <label for="reminderTime">Time</label>
+          <input type="time" id="reminderTime" required />
+
+          <button type="submit">Set Reminder</button>
+        </form>
+
+        <div id="alarmMessage" class="alarm-msg"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 HealthCare+ | All rights reserved</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('reminderForm');
+    const alarmMessage = document.getElementById('alarmMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById('reminderTitle').value;
+      const date = document.getElementById('reminderDate').value;
+      const time = document.getElementById('reminderTime').value;
+
+      const reminderDateTime = new Date(`${date}T${time}`);
+      const now = new Date();
+
+      const delay = reminderDateTime.getTime() - now.getTime();
+
+      if (delay > 0) {
+        alarmMessage.innerHTML = `⏳ Reminder for "${title}" set at ${time} on ${date}`;
+        setTimeout(() => {
+          alert(`🔔 Reminder: ${title}`);
+        }, delay);
+      } else {
+        alarmMessage.innerHTML = "❌ Please choose a future time.";
+      }
+    });
+  </script>
+</body>
+</html>

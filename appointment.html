@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Appointment | HealthCare+</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>HealthCare+</h1>
+    <p>Book an Appointment</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="appointment.html">Appointment</a>
+    <a href="reminder.html">Reminder</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="emergency.html">Emergency</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Appointment Page</h2>
+      <p>Book an appointment with your preferred doctor at your convenience.</p>
+
+      <div class="form-container">
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" />
+
+          <label for="place">Place</label>
+          <input type="text" id="place" name="place" required />
+
+          <label for="time">Time</label>
+          <input type="time" id="time" name="time" required />
+
+          <label for="disease">Disease / Concern</label>
+          <input type="text" id="disease" name="disease" required />
+
+          <button type="submit">Book Appointment</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 HealthCare+ | All rights reserved</p>
+  </footer>
+</body>
+</html>
